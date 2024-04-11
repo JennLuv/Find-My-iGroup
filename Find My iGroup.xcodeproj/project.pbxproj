@@ -14,6 +14,10 @@
 		3598E7A62BC7AE0600C6743C /* Find_My_iGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3598E7A52BC7AE0600C6743C /* Find_My_iGroupTests.swift */; };
 		3598E7B02BC7AE0600C6743C /* Find_My_iGroupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3598E7AF2BC7AE0600C6743C /* Find_My_iGroupUITests.swift */; };
 		3598E7B22BC7AE0600C6743C /* Find_My_iGroupUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3598E7B12BC7AE0600C6743C /* Find_My_iGroupUITestsLaunchTests.swift */; };
+		35AA17A42BC803D10077DDE3 /* sigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA17A32BC803D10077DDE3 /* sigView.swift */; };
+		35AA17A62BC809210077DDE3 /* registrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA17A52BC809210077DDE3 /* registrationView.swift */; };
+		35AA17A82BC823940077DDE3 /* registeredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA17A72BC823940077DDE3 /* registeredView.swift */; };
+		35AA17AA2BC823CF0077DDE3 /* profileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA17A92BC823CF0077DDE3 /* profileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		3598E7AB2BC7AE0600C6743C /* Find My iGroupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Find My iGroupUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3598E7AF2BC7AE0600C6743C /* Find_My_iGroupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find_My_iGroupUITests.swift; sourceTree = "<group>"; };
 		3598E7B12BC7AE0600C6743C /* Find_My_iGroupUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Find_My_iGroupUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		35AA17A32BC803D10077DDE3 /* sigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sigView.swift; sourceTree = "<group>"; };
+		35AA17A52BC809210077DDE3 /* registrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registrationView.swift; sourceTree = "<group>"; };
+		35AA17A72BC823940077DDE3 /* registeredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registeredView.swift; sourceTree = "<group>"; };
+		35AA17A92BC823CF0077DDE3 /* profileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,10 @@
 			children = (
 				3598E7942BC7AE0400C6743C /* Find_My_iGroupApp.swift */,
 				3598E7962BC7AE0400C6743C /* ContentView.swift */,
+				35AA17A32BC803D10077DDE3 /* sigView.swift */,
+				35AA17A52BC809210077DDE3 /* registrationView.swift */,
+				35AA17A72BC823940077DDE3 /* registeredView.swift */,
+				35AA17A92BC823CF0077DDE3 /* profileView.swift */,
 				3598E7982BC7AE0500C6743C /* Assets.xcassets */,
 				3598E79A2BC7AE0500C6743C /* Preview Content */,
 			);
@@ -259,6 +271,10 @@
 			files = (
 				3598E7972BC7AE0400C6743C /* ContentView.swift in Sources */,
 				3598E7952BC7AE0400C6743C /* Find_My_iGroupApp.swift in Sources */,
+				35AA17AA2BC823CF0077DDE3 /* profileView.swift in Sources */,
+				35AA17A42BC803D10077DDE3 /* sigView.swift in Sources */,
+				35AA17A62BC809210077DDE3 /* registrationView.swift in Sources */,
+				35AA17A82BC823940077DDE3 /* registeredView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
