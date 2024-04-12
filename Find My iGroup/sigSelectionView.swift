@@ -1,59 +1,50 @@
 //
-//  sigSelectionView.swift
-//  Find My iGroup
+//  SIGs.swift
+//  customTransitionHero
 //
-//  Created by Jennifer Luvindi on 12/04/24.
+//  Created by Jennifer Luvindi on 01/04/24.
 //
 
-import Foundation
 import SwiftUI
 
 struct sigSelectionView: View {
-    @State private var vm = ViewModel()
+    @State private var selectedSide = 1
     
+    var selectedSigs: [sigslist] {
+            return sigs.filter { $0.isChecked }
+        }
+    var sigs = sigslist.preview()
+    var tempArray: [sigslist] = []
     
     var body: some View {
         VStack {
-            Button("SIG Selected", action: vm.sortChosen)
             
-            List{
-                ForEach(vm.filteredList){ item in
-                    HStack{
-                        VStack (alignment: .leading) {
-                            Text(item.sigName)
-                        }
-                        Spacer()
-                        Image(systemName: vm.contains(item) ? "checkmark.circle.fill" : "checkmark.circle")
-                            .onTapGesture {
-                                vm.toggleChosen(siglist: item)
-                            }
-                    }
-                }
+            Text("Edit SIGs")
+                .font(.largeTitle)
+                .bold()
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Picker("Choose the SIGs you joined", selection: $selectedSide) {
+                Text("Selected SIGs").tag(0)
+                Text("All").tag(1)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            
+            if selectedSide == 1 {
+                listView(sigs: sigs)
+                    .padding(.horizontal, -20)
+            } else {
+                listView(sigs: selectedSigs)
+                    .padding(.horizontal, -20)
             }
         }
+        .ignoresSafeArea()
+        .padding(.top)
+        .padding(.horizontal)
         
     }
 }
 
-#Preview{
+#Preview {
     sigSelectionView()
 }
-
-struct sigList: Identifiable, Codable{
-    var id: Int
-    var sigName: String
-    var iChosen: Bool
-    
-    
-    static var sampleList: [sigList] {
-            let namesArray = ["Badminton", "Swimming", "Basketball", "Billiard", "Hockey", "Hiking"]
-            
-            // Use map to create sigList instances directly
-            let tempList = namesArray.enumerated().map { index, name in
-                sigList(id: index, sigName: name, iChosen: false)
-            }
-            
-            return tempList
-        }
-}
-

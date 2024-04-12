@@ -32,7 +32,7 @@ struct sigView: View {
                             .opacity(0.6)
                             .cornerRadius(10)
                         Rectangle()
-                            .fill(.linearGradient(Gradient(colors: [Color.orange, Color.clear]),startPoint: .bottomLeading, endPoint: .center))
+                            .fill(.linearGradient(Gradient(colors: [Color.orange, Color.clear]),startPoint: .bottom, endPoint: .center))
                             .opacity(0.3)
                             .cornerRadius(10)
                     }
