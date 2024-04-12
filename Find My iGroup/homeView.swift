@@ -44,7 +44,7 @@ struct homeView: View {
                     sigView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date : "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace, show: $show)
                         .padding(.bottom)
                         .onTapGesture {
-                            withAnimation(.spring(response: 0.2, dampingFraction: 0.9)){
+                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
                                 show.toggle()
                             }
                         }
