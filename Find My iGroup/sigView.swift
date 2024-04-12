@@ -14,6 +14,8 @@ struct sigView: View {
     var activityName : String
     var date : String
     var sigName : String
+    var namespace: Namespace.ID
+    @Binding var show: Bool
     
     
     var body: some View {
@@ -38,6 +40,7 @@ struct sigView: View {
                     }
                 )
                 .blur(radius: 0.9)
+                .matchedGeometryEffect(id: "bg", in: namespace)
             
             
             HStack {
@@ -47,17 +50,20 @@ struct sigView: View {
                         .font(.callout)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.bottom, 2)
+                        .matchedGeometryEffect(id: "date", in: namespace)
                     Text(activityName)
                         .font(.title2)
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.bottom, 2)
+                        .matchedGeometryEffect(id: "activityName", in: namespace)
                     HStack {
                         Image(systemName: "person.3.fill")
                         Text(sigName)
                             .font(.headline)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .matchedGeometryEffect(id: "sigName", in: namespace)
                 }
                 .padding(.leading)
                 //                    .border(Color.black)
