@@ -92,7 +92,7 @@ struct registeredView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: 88, alignment: .trailing)
         }
-        .frame(width: .infinity, height: 156)
+        .frame(height: 156)
     }
 }
 

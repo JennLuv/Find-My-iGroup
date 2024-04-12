@@ -30,7 +30,8 @@ struct registrationView: View {
             
         }
         .ignoresSafeArea()
-        .padding()
+        .padding(.top)
+        .padding(.horizontal)
     }
 }
 

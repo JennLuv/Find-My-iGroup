@@ -26,10 +26,16 @@ struct sigView: View {
                 .cornerRadius(10)
                 .clipped()
                 .overlay(
-                    Rectangle()
-                        .fill(.linearGradient(Gradient(colors: [Color.black, Color.clear]),startPoint: .leading, endPoint: .trailing))
-                        .opacity(0.4)
-                        .cornerRadius(10)
+                    ZStack {
+                        Rectangle()
+                            .fill(.linearGradient(Gradient(colors: [Color.black, Color.clear]),startPoint: .leading, endPoint: .trailing))
+                            .opacity(0.6)
+                            .cornerRadius(10)
+                        Rectangle()
+                            .fill(.linearGradient(Gradient(colors: [Color.orange, Color.clear]),startPoint: .bottomLeading, endPoint: .center))
+                            .opacity(0.3)
+                            .cornerRadius(10)
+                    }
                 )
                 .blur(radius: 0.9)
             
