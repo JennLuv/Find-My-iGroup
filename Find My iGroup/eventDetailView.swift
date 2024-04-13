@@ -40,17 +40,31 @@ struct eventDetailView: View {
                                 .opacity(0.9)
                                 .cornerRadius(10)
                             VStack {
-                                Image(systemName: "x.circle.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 30)
-                                    .foregroundColor(.orange)
-                                    .padding(20)
-                                    .onTapGesture {
-                                        withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
-                                            show.toggle()
-                                        }
+                                ZStack {
+                                    Image(systemName: "x.circle.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30)
+                                        .foregroundColor(.orange)
+                                        .padding(20)
+                                        .onTapGesture {
+                                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
+                                                show.toggle()
+                                            }
                                     }
+                                    Image(systemName: "x.circle")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30)
+                                        .foregroundColor(.black)
+                                        .bold()
+                                        .padding(20)
+                                        .onTapGesture {
+                                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
+                                                show.toggle()
+                                            }
+                                        }
+                                }
                                 Spacer()
                             }
                             .frame(maxWidth: .infinity, maxHeight: 327, alignment: .trailing)
@@ -91,7 +105,7 @@ struct eventDetailView: View {
                         Spacer()
                     }
                     .padding(.bottom)
-                    .padding(.leading,4)
+                    .padding(.leading,-2)
                 }
                 .frame(maxWidth: 403, maxHeight: 327)
                 
@@ -169,16 +183,17 @@ struct eventDetailView: View {
                     .fill(Color.black)
                 Rectangle()
                     .fill(Color.orange)
-                    .frame(width: 350, height: 50)
+                    .frame(width: 360, height: 50)
                     .cornerRadius(15)
                     .overlay{
                         Text("Register")
                             .font(.title)
                             .bold()
                     }
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 90)
             }
-            .frame(maxWidth: .infinity, maxHeight: 110)
+            .frame(maxWidth: .infinity, maxHeight: 165)
+//            .padding(.bottom, 50)
             
         }
         .ignoresSafeArea()
