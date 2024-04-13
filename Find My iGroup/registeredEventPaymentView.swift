@@ -86,7 +86,7 @@ struct registeredEventPaymentView: View {
                         //                    Text("Logout")
                         NavigationLink {
                             eventDetailView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace, show: $show)
-                                .navigationBarBackButtonHidden(true)
+//                                .navigationBarBackButtonHidden(true)
                         } label: {
                             Text("Visit Event Details")
                                 .foregroundStyle(Color.orange)

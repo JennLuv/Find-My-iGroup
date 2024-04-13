@@ -39,35 +39,35 @@ struct eventDetailView: View {
                                 .fill(.linearGradient(Gradient(colors: [Color.black, Color.clear]),startPoint: .bottom, endPoint: .center))
                                 .opacity(0.9)
                                 .cornerRadius(10)
-                            VStack {
-                                ZStack {
-                                    Image(systemName: "x.circle.fill")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 30)
-                                        .foregroundColor(.orange)
-                                        .padding(20)
-                                        .onTapGesture {
-                                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
-                                                show.toggle()
-                                            }
-                                    }
-                                    Image(systemName: "x.circle")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 30)
-                                        .foregroundColor(.black)
-                                        .bold()
-                                        .padding(20)
-                                        .onTapGesture {
-                                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
-                                                show.toggle()
-                                            }
-                                        }
-                                }
-                                Spacer()
-                            }
-                            .frame(maxWidth: .infinity, maxHeight: 327, alignment: .trailing)
+//                            VStack {
+//                                ZStack {
+//                                    Image(systemName: "x.circle.fill")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 30)
+//                                        .foregroundColor(.orange)
+//                                        .padding(20)
+//                                        .onTapGesture {
+//                                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
+//                                                show.toggle()
+//                                            }
+//                                    }
+//                                    Image(systemName: "x.circle")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 30)
+//                                        .foregroundColor(.black)
+//                                        .bold()
+//                                        .padding(20)
+//                                        .onTapGesture {
+//                                            withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
+//                                                show.toggle()
+//                                            }
+//                                        }
+//                                }
+//                                Spacer()
+//                            }
+//                            .frame(maxWidth: .infinity, maxHeight: 327, alignment: .trailing)
 //                            .border(Color.red)
                         }
                     )

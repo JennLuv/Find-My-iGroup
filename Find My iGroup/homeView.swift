@@ -70,7 +70,49 @@ struct homeView: View {
                 Spacer()
                 
             } else {
-                eventDetailView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace, show: $show)
+                
+                ZStack {
+                    
+                    eventDetailView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace, show: $show)
+                }
+                .overlay{
+                    VStack {
+                        ZStack {
+                            Image(systemName: "x.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 30)
+                                .bold()
+                                .foregroundColor(.orange)
+                                .opacity(0.6)
+                                .padding(20)
+                                .onTapGesture {
+                                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
+                                        show.toggle()
+                                    }
+                                }
+                            
+                            
+//                            Image(systemName: "x.circle")
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: 30)
+//                                .foregroundColor(.black)
+//                                .bold()
+//                                .padding(20)
+//                                .onTapGesture {
+//                                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
+//                                        show.toggle()
+//                                    }
+//                                }
+                        }
+                        .padding()
+                        .offset(x: 165, y: -15)
+                        Spacer()
+                    }
+                }
+                
+                
                 
             }
             
