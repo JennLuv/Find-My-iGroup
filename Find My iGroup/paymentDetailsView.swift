@@ -69,6 +69,7 @@ struct paymentDetailsView: View {
                 .padding(.top, -20)
             }
             .tint(Color.orange)
+            
         }
         
     }

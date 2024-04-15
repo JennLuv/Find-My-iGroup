@@ -82,6 +82,7 @@ struct eventDetailView: View {
 //                                                Text(Date.now.formatted(date: .long, time: .shortened))
                             Text(date)
                                 .font(.callout)
+                                .bold()
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.bottom, 2)
                                 .matchedGeometryEffect(id: "date", in: namespace)

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct homeView: View {
     
-    @Namespace var namespace
-    @State var show = false
+    var namespace: Namespace.ID
+    @Binding var show : Bool
     
     var body: some View {
         VStack {
@@ -49,17 +49,17 @@ struct homeView: View {
                                     show.toggle()
                                 }
                             }
+//                        sigView(image: "basketballImage", activityName: "BASKETBALL SPAR DAY FUN", date : "20 April 2024 at 16.33", sigName: "SIG Basketball",  namespace: namespace, show: $show)
+//                            .padding(.bottom)
+//                        
+//                        sigView(image: "swimmingImage", activityName: "SWIMMING TOGETHER DAY", date : "25 April 2024 at 10.33", sigName: "SIG Swimming",  namespace: namespace, show: $show)
+//                            .padding(.bottom)
+//                        
+//                        sigView(image: "billiardImage", activityName: "BILLIARD FIGHT DAY", date : "18 April 2024 at 7.33", sigName: "SIG Billiard",  namespace: namespace, show: $show)
+//                            .padding(.bottom)
                     }
                     
                     
-                    //                sigView(image: "basketballImage", activityName: "BASKETBALL SPAR DAY FUN", date : "20 April 2024 at 16.33", sigName: "SIG Basketball")
-                    //                    .padding(.bottom)
-                    //
-                    //                sigView(image: "swimmingImage", activityName: "SWIMMING TOGETHER DAY", date : "25 April 2024 at 10.33", sigName: "SIG Swimming")
-                    //                    .padding(.bottom)
-                    //
-                    //                sigView(image: "billiardImage", activityName: "BILLIARD FIGHT DAY", date : "18 April 2024 at 7.33", sigName: "SIG Billiard")
-                    //                    .padding(.bottom)
                     
                 }
                 .ignoresSafeArea()
@@ -92,19 +92,6 @@ struct homeView: View {
                                     }
                                 }
                             
-                            
-//                            Image(systemName: "x.circle")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 30)
-//                                .foregroundColor(.black)
-//                                .bold()
-//                                .padding(20)
-//                                .onTapGesture {
-//                                    withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
-//                                        show.toggle()
-//                                    }
-//                                }
                         }
                         .padding()
                         .offset(x: 165, y: -15)
@@ -121,7 +108,7 @@ struct homeView: View {
     }
 }
 
-#Preview {
-    homeView()
-}
+//#Preview {
+//    homeView()
+//}
 

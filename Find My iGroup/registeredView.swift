@@ -20,9 +20,9 @@ struct registeredView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .background(.ultraThinMaterial)
+                .background(.white)
                 .cornerRadius(10)
-                .opacity(0.3)
+                .opacity(0.15)
             
                 .overlay{
                     VStack{
@@ -37,7 +37,7 @@ struct registeredView: View {
                                     topTrailingRadius: 10
                                 )
                             )
-                            .opacity(0.4)
+                            .opacity(0.6)
                         Spacer()
                     }
                     
@@ -79,23 +79,30 @@ struct registeredView: View {
             VStack{
                 Spacer(minLength: 68)
                 HStack{
-                    Text(activityName)
-                        .font(.title2)
-                        .bold()
-                        .frame(height: 88, alignment: .trailing)
+                    VStack(alignment: .leading) {
+                        Text(activityName)
+                            .font(.title2)
+                            .bold()
+                            .frame(width: 230, height: 88, alignment: .leading)
+//                            .border(Color.red)
+                    }
+                    .frame(width: 230, height: 88)
+//                    .border(Color.red)
+                    //                    .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer()
                     
                     Text(price)
                 }
                 .padding()
+//                .border(Color.blue)
                 //                    .border(Color.red)
             }
-            .frame(maxWidth: .infinity, maxHeight: 88, alignment: .trailing)
+            .frame(maxWidth: .infinity, maxHeight: 88)
         }
         .frame(height: 156)
     }
 }
 
 #Preview {
-    registrationView()
+    registeredView(sigName : "SIG Badminton", date : "13 April 2024 at 13.33", paymentStatus : "Not Paid", activityName : "BADMINTON FUN GAME", price : "Rp 15.000")
 }

@@ -13,9 +13,10 @@ struct registeredEventPaymentView: View {
     var activityName : String
     var date : String
     var sigName : String
+    @Environment(\.dismiss) private var dismiss
     var namespace: Namespace.ID
-    @Binding var show: Bool
-
+    @State var show = false
+    
     
     var body: some View {
         NavigationView {
@@ -41,7 +42,7 @@ struct registeredEventPaymentView: View {
                                 //                            .border(Color.red)
                             }
                         )
-                        .matchedGeometryEffect(id: "bg", in: namespace)
+                    //                        .matchedGeometryEffect(id: "bg", in: namespace)
                     
                     
                     
@@ -52,25 +53,27 @@ struct registeredEventPaymentView: View {
                                 //                                                Text(Date.now.formatted(date: .long, time: .shortened))
                                 Text(date)
                                     .font(.callout)
+                                    .bold()
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.bottom, 2)
-                                    .matchedGeometryEffect(id: "date", in: namespace)
+                                //                                    .matchedGeometryEffect(id: "date", in: namespace)
                                 Text(activityName)
                                     .font(.title2)
                                     .bold()
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.bottom, 2)
-                                    .matchedGeometryEffect(id: "activityName", in: namespace)
+                                //                                    .matchedGeometryEffect(id: "activityName", in: namespace)
                                 HStack {
                                     Image(systemName: "person.3.fill")
                                     Text(sigName)
                                         .font(.headline)
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                .matchedGeometryEffect(id: "sigName", in: namespace)
+                                //                                .matchedGeometryEffect(id: "sigName", in: namespace)
                             }
                             .frame(maxWidth: 250, alignment: .leading)
-                            //                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                            //                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                            .padding(.bottom, -20)
                             .padding(.leading)
                             Spacer()
                         }
@@ -82,11 +85,11 @@ struct registeredEventPaymentView: View {
                 .ignoresSafeArea()
                 Form {
                     
-                    Section{
+                    Section (header: Text("Event Details")){
                         //                    Text("Logout")
                         NavigationLink {
-                            eventDetailView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace, show: $show)
-//                                .navigationBarBackButtonHidden(true)
+                            eventDetailView(image: image, activityName: activityName, date: date, sigName: sigName, namespace: namespace, show: $show)
+                            //                                .navigationBarBackButtonHidden(true)
                         } label: {
                             Text("Visit Event Details")
                                 .foregroundStyle(Color.orange)
@@ -124,47 +127,61 @@ struct registeredEventPaymentView: View {
                                 .opacity(0.6)
                             Spacer()
                             Text("Paid")
-//                                .foregroundStyle(Color.green)
+                            //                                .foregroundStyle(Color.green)
                         }
-//                        Toggle(isOn: /*@START_MENU_TOKEN@*/.constant(true)/*@END_MENU_TOKEN@*/, label: {
-//                            Text("Payment Status")
-//                        })
                         
-                    }
-                    
-                    Section{
-                        //                    Text("Logout")
-                        Button {
-//                            paymentDetailsView()
+                        //                        Toggle(isOn: /*@START_MENU_TOKEN@*/.constant(true)/*@END_MENU_TOKEN@*/, label: {
+                        //                            Text("Payment Status")
+                        //                        })
+                        NavigationLink {
+                            paymentDetailsView()
                         } label: {
                             Text("Pay")
-                                .foregroundStyle(Color.red)
-                                .frame(maxWidth: .infinity)
+                                .foregroundStyle(Color.orange)
                             //                                .opacity(0.6)
                         }
+                    }
+                    
+                    Section(header: Text("GET NOTIFIED")){
+                        //                    Text("Logout")
+                        Toggle(isOn: /*@START_MENU_TOKEN@*/.constant(true)/*@END_MENU_TOKEN@*/, label: {
+                            Text("Add to Calendar")
+                        })
                         
                     }
                     
                     
                     
                 }
-                .padding(.top, -70)
-//                .padding(.horizontal, -20)
+                
+                .padding(.top, -80)
+                //                .padding(.horizontal, -20)
+                
             }
-            
         }
         .tint(Color.orange)
+        //        .ignoresSafeArea()
+        //        .toolbar{
+        //            ToolbarItem(placement: .navigationBarTrailing) {
+        //                Button("Back") {
+        //                }
+        //            }
+        //        }
         
         
         
     }
     
+    
 }
+//#Preview {
+//    registeredEventPaymentView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton")
+//}
 
 struct CourseView2_Previews : PreviewProvider {
     @Namespace static var namespace
-    
+
     static var previews: some View{
-        registeredEventPaymentView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace, show: .constant(false))
+        registeredEventPaymentView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace)
     }
 }

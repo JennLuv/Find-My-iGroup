@@ -9,22 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     
-//    @Namespace var namespace
-//    @State var show = false
+    @State var show = false
+    @Namespace var namespace
     
     var body: some View {
         TabView {
             
             
-            homeView()
+            homeView(namespace: namespace, show: $show)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
             
-            registrationView()
+            registrationView(namespace: namespace)
                 .tabItem {
                     Label("Registration", systemImage: "tray.fill")
                 }
+            
             profileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.fill")
