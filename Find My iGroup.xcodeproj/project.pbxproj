@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		353A4BA42BCEB16F00F9EE0E /* home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353A4BA32BCEB16F00F9EE0E /* home.swift */; };
 		3563C7A82BCA3C2400F10472 /* paymentDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563C7A72BCA3C2400F10472 /* paymentDetailsView.swift */; };
 		3563C7AA2BCA40F500F10472 /* registeredEventPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3563C7A92BCA40F500F10472 /* registeredEventPaymentView.swift */; };
 		3567B7242BC9124700ECF918 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567B7232BC9124700ECF918 /* homeView.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		353A4BA32BCEB16F00F9EE0E /* home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = home.swift; sourceTree = "<group>"; };
 		3563C7A72BCA3C2400F10472 /* paymentDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentDetailsView.swift; sourceTree = "<group>"; };
 		3563C7A92BCA40F500F10472 /* registeredEventPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registeredEventPaymentView.swift; sourceTree = "<group>"; };
 		3567B7232BC9124700ECF918 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,8 @@
 		3567B72F2BC942B300ECF918 /* notUsed */ = {
 			isa = PBXGroup;
 			children = (
+				3567B7232BC9124700ECF918 /* homeView.swift */,
+				35AA17A32BC803D10077DDE3 /* sigView.swift */,
 				3567B7292BC9284800ECF918 /* sigSelectionViewModel.swift */,
 				3567B7272BC9264A00ECF918 /* database.swift */,
 			);
@@ -132,11 +136,10 @@
 				3567B72F2BC942B300ECF918 /* notUsed */,
 				3598E7942BC7AE0400C6743C /* Find_My_iGroupApp.swift */,
 				3598E7962BC7AE0400C6743C /* ContentView.swift */,
-				35AA17A32BC803D10077DDE3 /* sigView.swift */,
+				353A4BA32BCEB16F00F9EE0E /* home.swift */,
 				35AA17A52BC809210077DDE3 /* registrationView.swift */,
 				35AA17A72BC823940077DDE3 /* registeredView.swift */,
 				35AA17A92BC823CF0077DDE3 /* profileView.swift */,
-				3567B7232BC9124700ECF918 /* homeView.swift */,
 				3567B7252BC921FE00ECF918 /* sigSelectionView.swift */,
 				3567B72B2BC93D7E00ECF918 /* listView.swift */,
 				3567B72D2BC93DCF00ECF918 /* sigList.swift */,
@@ -318,6 +321,7 @@
 				35AA17A62BC809210077DDE3 /* registrationView.swift in Sources */,
 				3567B7262BC921FE00ECF918 /* sigSelectionView.swift in Sources */,
 				35AA17A82BC823940077DDE3 /* registeredView.swift in Sources */,
+				353A4BA42BCEB16F00F9EE0E /* home.swift in Sources */,
 				3567B72C2BC93D7E00ECF918 /* listView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

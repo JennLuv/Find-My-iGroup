@@ -16,14 +16,14 @@ struct ContentView: View {
         TabView {
             
             
-            homeView(namespace: namespace, show: $show)
+            home(show: $show, namespace: namespace)
                 .tabItem {
-                    Label("Home", systemImage: "house.fill")
+                    Label("My Events", systemImage: "house.fill")
                 }
             
             registrationView(namespace: namespace)
                 .tabItem {
-                    Label("Registration", systemImage: "tray.fill")
+                    Label("Registered", systemImage: "tray.fill")
                 }
             
             profileView()

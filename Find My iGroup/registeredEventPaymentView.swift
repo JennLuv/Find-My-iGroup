@@ -21,68 +21,6 @@ struct registeredEventPaymentView: View {
     var body: some View {
         NavigationView {
             VStack{
-                ZStack {
-                    Image(image)
-                        .resizable()
-                        .scaledToFill()
-                    //                    .frame(width: 358, height: 151)
-                        .frame(maxWidth: 403, maxHeight: 230)
-                        .cornerRadius(10)
-                        .clipped()
-                        .overlay(
-                            ZStack {
-                                Rectangle()
-                                    .fill(.linearGradient(Gradient(colors: [Color.orange, Color.clear]),startPoint: .bottom, endPoint: .center))
-                                    .opacity(0.3)
-                                    .cornerRadius(10)
-                                Rectangle()
-                                    .fill(.linearGradient(Gradient(colors: [Color.black, Color.clear]),startPoint: .bottom, endPoint: .center))
-                                    .opacity(1.0)
-                                    .cornerRadius(10)
-                                //                            .border(Color.red)
-                            }
-                        )
-                    //                        .matchedGeometryEffect(id: "bg", in: namespace)
-                    
-                    
-                    
-                    VStack {
-                        Spacer()
-                        HStack {
-                            VStack{
-                                //                                                Text(Date.now.formatted(date: .long, time: .shortened))
-                                Text(date)
-                                    .font(.callout)
-                                    .bold()
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.bottom, 2)
-                                //                                    .matchedGeometryEffect(id: "date", in: namespace)
-                                Text(activityName)
-                                    .font(.title2)
-                                    .bold()
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.bottom, 2)
-                                //                                    .matchedGeometryEffect(id: "activityName", in: namespace)
-                                HStack {
-                                    Image(systemName: "person.3.fill")
-                                    Text(sigName)
-                                        .font(.headline)
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                //                                .matchedGeometryEffect(id: "sigName", in: namespace)
-                            }
-                            .frame(maxWidth: 250, alignment: .leading)
-                            //                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
-                            .padding(.bottom, -20)
-                            .padding(.leading)
-                            Spacer()
-                        }
-                        .padding(.bottom)
-                        .padding(.leading, 10)
-                    }
-                    .frame(maxWidth: 403, maxHeight: 230)
-                }
-                .ignoresSafeArea()
                 Form {
                     
                     Section (header: Text("Event Details")){
@@ -154,7 +92,7 @@ struct registeredEventPaymentView: View {
                     
                 }
                 
-                .padding(.top, -80)
+//                .padding(.top, -80)
                 //                .padding(.horizontal, -20)
                 
             }
