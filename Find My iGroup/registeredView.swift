@@ -37,7 +37,7 @@ struct registeredView: View {
                                     topTrailingRadius: 10
                                 )
                             )
-                            .opacity(0.6)
+                            .opacity(0.5)
                         Spacer()
                     }
                     
@@ -79,25 +79,23 @@ struct registeredView: View {
             VStack{
                 Spacer(minLength: 68)
                 HStack{
-                    VStack(alignment: .leading) {
-                        Text(activityName)
-                            .font(.title2)
-                            .bold()
-                            .frame(width: 230, height: 88, alignment: .leading)
-//                            .border(Color.red)
-                    }
-                    .frame(width: 230, height: 88)
-//                    .border(Color.red)
-                    //                    .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(activityName)
+                        .font(.title2)
+                        .bold()
+                        .frame(width: 220, height: 80)
+//                        .border(Color.red)
                     Spacer()
-                    
+                    Divider() // Divider here
+                        .background(Color.white)
+                        .bold()
+                    Spacer()
                     Text(price)
                 }
                 .padding()
-//                .border(Color.blue)
+                //                .border(Color.blue)
                 //                    .border(Color.red)
             }
-            .frame(maxWidth: .infinity, maxHeight: 88)
+//            .frame(maxWidth: .infinity, maxHeight: 88)
         }
         .frame(height: 156)
     }

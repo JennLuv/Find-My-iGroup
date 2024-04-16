@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct sigSelectionView: View {
+    @Binding var data : [Card]
     @State private var selectedSide = 1
     
-    var selectedSigs: [sigslist] {
-            return sigs.filter { $0.isChecked }
+    var selectedSigs: [Card] {
+        if selectedSide == 0 {
+            return data.filter { $0.joined }
+        } else {
+            return data
         }
-    var sigs = sigslist.preview()
-    var tempArray: [sigslist] = []
+    }
     
     var body: some View {
         VStack {
@@ -30,21 +33,30 @@ struct sigSelectionView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             
-            if selectedSide == 1 {
-                listView(sigs: sigs)
-                    .padding(.horizontal, -20)
-            } else {
-                listView(sigs: selectedSigs)
-                    .padding(.horizontal, -20)
+            List(selectedSigs) { sig in
+                HStack {
+                    Text(sig.sigName) // Accessing the `sigName` property correctly
+                    Spacer()
+                    Button {
+                        // Toggle the `joined` property of the selected `Card`
+                        if let index = data.firstIndex(where: { $0.id == sig.id }) {
+                            data[index].joined.toggle()
+                        }
+                    } label: {
+                        Image(systemName: sig.joined ? "checkmark.circle.fill" : "circle")
+                    }
+                }
+                
+                
             }
+            .padding(.horizontal, -20)
         }
-        .ignoresSafeArea()
-        .padding(.top)
         .padding(.horizontal)
+        
         
     }
 }
 
 #Preview {
-    sigSelectionView()
+    ContentView()
 }

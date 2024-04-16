@@ -105,6 +105,8 @@
 				3567B7232BC9124700ECF918 /* homeView.swift */,
 				35AA17A32BC803D10077DDE3 /* sigView.swift */,
 				3567B7292BC9284800ECF918 /* sigSelectionViewModel.swift */,
+				3567B72B2BC93D7E00ECF918 /* listView.swift */,
+				3567B72D2BC93DCF00ECF918 /* sigList.swift */,
 				3567B7272BC9264A00ECF918 /* database.swift */,
 			);
 			path = notUsed;
@@ -141,8 +143,6 @@
 				35AA17A72BC823940077DDE3 /* registeredView.swift */,
 				35AA17A92BC823CF0077DDE3 /* profileView.swift */,
 				3567B7252BC921FE00ECF918 /* sigSelectionView.swift */,
-				3567B72B2BC93D7E00ECF918 /* listView.swift */,
-				3567B72D2BC93DCF00ECF918 /* sigList.swift */,
 				3567B7302BC9435C00ECF918 /* eventDetailView.swift */,
 				3563C7A72BCA3C2400F10472 /* paymentDetailsView.swift */,
 				3563C7A92BCA40F500F10472 /* registeredEventPaymentView.swift */,

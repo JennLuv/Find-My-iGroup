@@ -13,20 +13,26 @@ struct registeredEventPaymentView: View {
     var activityName : String
     var date : String
     var sigName : String
-    @Environment(\.dismiss) private var dismiss
     var namespace: Namespace.ID
+    var registered: Bool
     @State var show = false
+    @Binding var data : [Card]
     
     
     var body: some View {
         NavigationView {
             VStack{
+                Text("Registration Details")
+                    .font(.largeTitle)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
                 Form {
                     
                     Section (header: Text("Event Details")){
                         //                    Text("Logout")
                         NavigationLink {
-                            eventDetailView(image: image, activityName: activityName, date: date, sigName: sigName, namespace: namespace, show: $show)
+                            eventDetailView(image: image, activityName: activityName, date: date, sigName: sigName, namespace: namespace, registered: registered, show: $show)
                             //                                .navigationBarBackButtonHidden(true)
                         } label: {
                             Text("Visit Event Details")
@@ -45,9 +51,9 @@ struct registeredEventPaymentView: View {
                             Text("Rp 120.000")
                         }
                         NavigationLink {
-                            sigSelectionView()
+                            sigSelectionView(data: $data)
                         } label: {
-                            Text("Joined Members")
+                            Text("Joined Members (1)")
                                 .foregroundStyle(Color.orange)
                             //                                .opacity(0.6)
                         }
@@ -64,7 +70,7 @@ struct registeredEventPaymentView: View {
                             Text("Payment Status")
                                 .opacity(0.6)
                             Spacer()
-                            Text("Paid")
+                            Text("Unpaid")
                             //                                .foregroundStyle(Color.green)
                         }
                         
@@ -116,10 +122,10 @@ struct registeredEventPaymentView: View {
 //    registeredEventPaymentView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton")
 //}
 
-struct CourseView2_Previews : PreviewProvider {
-    @Namespace static var namespace
-
-    static var previews: some View{
-        registeredEventPaymentView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace)
-    }
-}
+//struct CourseView2_Previews : PreviewProvider {
+//    @Namespace static var namespace
+//
+//    static var previews: some View{
+//        registeredEventPaymentView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace)
+//    }
+//}

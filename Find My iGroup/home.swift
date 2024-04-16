@@ -11,17 +11,19 @@ import SwiftUI
 
 struct home : View {
     
-    @State var data = [
-        Card(id: 1,image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date : "11 April 2024 at 18.33", sigName: "SIG Badminton", expand: false),
-        Card(id: 2,image: "basketballImage", activityName: "BASKETBALL SPAR DAY FUN", date : "20 April 2024 at 16.33", sigName: "SIG Basketball", expand: false),
-        Card(id: 3,image: "swimmingImage", activityName: "SWIMMING TOGETHER DAY", date : "25 April 2024 at 10.33", sigName: "SIG Swimming", expand: false),
-        Card(id: 4,image: "billiardImage", activityName: "BILLIARD FIGHT DAY", date : "18 April 2024 at 7.33", sigName: "SIG Billiard", expand: false),
-        Card(id: 5,image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date : "11 April 2024 at 18.33", sigName: "SIG Badminton", expand: false)
-    ]
+    @Binding var data : [Card]
+    @State var selectedPickerIndex = 0
+    var filteredData: [Card] {
+            if selectedPickerIndex == 2 {
+                return data.filter { $0.registered }
+            } else {
+                return data
+            }
+        }
     
     @State var hero = false
     @Binding var show : Bool
-    @State var dataPass = Card(id: 0,image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date : "11 April 2024 at 18.33", sigName: "SIG Badminton", expand: false)
+    @State var dataPass = Card(id: 1,image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date : "11 April 2024 at 18.33", sigName: "SIG Badminton", joined: false, registered: false)
     var namespace: Namespace.ID
     
     var body: some View{
@@ -34,7 +36,7 @@ struct home : View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     //                        .padding()
                     ZStack {
-                        Picker(selection: .constant(1), label: Text("Picker")) {
+                        Picker(selection: $selectedPickerIndex, label: Text("Picker")) {
                             Text("Upcoming").tag(1)
                             Text("Registered").tag(2)
                         }
@@ -51,13 +53,13 @@ struct home : View {
                     }
                     .padding(.bottom)
                     ScrollView(.vertical, showsIndicators: false){
-                        VStack(spacing: 165){
-                            ForEach(1..<self.data.count){i in
+                        VStack(spacing: 25){
+                            ForEach(filteredData){card in
                                 
-                                GeometryReader{g in
+                                
                                     
                                     ZStack {
-                                        Image(self.data[i].image)
+                                        Image(card.image)
                                             .resizable()
                                             .scaledToFill()
                                         //                    .frame(width: 358, height: 151)
@@ -77,19 +79,19 @@ struct home : View {
                                                 }
                                             )
                                             .blur(radius: 0.9)
-                                            .matchedGeometryEffect(id: self.data[i].id, in: namespace)
+                                            .matchedGeometryEffect(id: card.id, in: namespace)
                                         
                                         
                                         HStack {
                                             VStack{
                                                 //                    Text(Date.now.formatted(date: .long, time: .shortened))
-                                                Text(self.data[i].date)
+                                                Text(card.date)
                                                     .font(.callout)
                                                     .bold()
                                                     .frame(maxWidth: .infinity, alignment: .leading)
                                                     .padding(.bottom, 2)
                                                 //                                            .matchedGeometryEffect(id: "date", in: namespace)
-                                                Text(self.data[i].activityName)
+                                                Text(card.activityName)
                                                     .font(.title2)
                                                     .bold()
                                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -97,7 +99,7 @@ struct home : View {
                                                 //                                            .matchedGeometryEffect(id: "activityName", in: namespace)
                                                 HStack {
                                                     Image(systemName: "person.3.fill")
-                                                    Text(self.data[i].sigName)
+                                                    Text(card.sigName)
                                                         .font(.headline)
                                                 }
                                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -111,14 +113,14 @@ struct home : View {
                                         
                                     }
                                     .onTapGesture {
-                                        dataPass = Card(id: self.data[i].id,image: self.data[i].image, activityName: self.data[i].activityName, date : self.data[i].date, sigName: self.data[i].sigName, expand: self.data[i].expand)
+                                        dataPass = Card(id: card.id,image: card.image, activityName: card.activityName, date : card.date, sigName: card.sigName, joined: card.joined, registered: card.registered)
                                         withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
                                             show.toggle()
                                         }
                                     }
                                     
                                 }
-                            }
+                            
                             
                             
                         }
@@ -126,7 +128,7 @@ struct home : View {
                 }
                 .padding()
                 .padding(.top, 60)
-                .padding(.bottom, 70)
+                .padding(.bottom, 75)
                 
             }
             else {
@@ -134,13 +136,20 @@ struct home : View {
                     .overlay{
                         VStack {
                             ZStack {
+                                Rectangle()
+                                    .frame(width: 80, height: 80)
+                                    .cornerRadius(10)
+                                    .offset(x: 10, y: -10)
+                                    .foregroundColor(.black)
+                                    .opacity(0.8)
+//                                    .blur(radius: 1.0)
                                 Image(systemName: "x.circle.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 30)
                                     .bold()
                                     .foregroundColor(.orange)
-                                    .opacity(0.6)
+                                    .opacity(0.8)
                                     .padding(20)
                                     .onTapGesture {
                                         withAnimation(.spring(response: 0.2, dampingFraction: 1.0)){
@@ -303,7 +312,7 @@ struct cardView: View {
                     .fill(Color.black)
                 Rectangle()
                     .fill(Color.orange)
-                    .frame(width: 360, height: 50)
+                    .frame(width: 360, height: 45)
                     .cornerRadius(15)
                     .overlay{
                         Text("Register")
@@ -327,7 +336,8 @@ struct Card : Identifiable {
     var activityName : String
     var date : String
     var sigName : String
-    var expand: Bool
+    var joined: Bool
+    var registered: Bool
 }
 
 

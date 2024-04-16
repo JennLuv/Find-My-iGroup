@@ -15,6 +15,7 @@ struct eventDetailView: View {
     var date : String
     var sigName : String
     var namespace: Namespace.ID
+    var registered: Bool
     @Binding var show: Bool
     
     
@@ -26,7 +27,7 @@ struct eventDetailView: View {
                     .resizable()
                     .scaledToFill()
                 //                    .frame(width: 358, height: 151)
-                    .frame(maxWidth: 403, maxHeight: 327)
+                    .frame(maxWidth: 403, maxHeight: 230)
                     .cornerRadius(10)
                     .clipped()
                     .overlay(
@@ -37,7 +38,7 @@ struct eventDetailView: View {
                                 .cornerRadius(10)
                             Rectangle()
                                 .fill(.linearGradient(Gradient(colors: [Color.black, Color.clear]),startPoint: .bottom, endPoint: .center))
-                                .opacity(0.9)
+//                                .opacity(0.9)
                                 .cornerRadius(10)
 //                            VStack {
 //                                ZStack {
@@ -108,7 +109,7 @@ struct eventDetailView: View {
                     .padding(.bottom)
                     .padding(.leading,-2)
                 }
-                .frame(maxWidth: 403, maxHeight: 327)
+                .frame(maxWidth: 403, maxHeight: 230)
                 
 //                                .border(Color.red)
                 
@@ -119,10 +120,10 @@ struct eventDetailView: View {
                     .fill(.thinMaterial)
                 HStack {
                     VStack{
-                        Text("Location")
-                            .font(.subheadline)
-                            .padding(.bottom,5)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+//                        Text("Location")
+//                            .font(.subheadline)
+//                            .padding(.bottom,5)
+//                            .frame(maxWidth: .infinity, alignment: .leading)
                         Text("The Breeze")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .bold()
@@ -142,7 +143,7 @@ struct eventDetailView: View {
                     
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: 130)
+            .frame(maxWidth: .infinity, maxHeight: 100)
 //            .cornerRadius(10)
             .padding(.bottom)
             
@@ -184,10 +185,10 @@ struct eventDetailView: View {
                     .fill(Color.black)
                 Rectangle()
                     .fill(Color.orange)
-                    .frame(width: 360, height: 50)
+                    .frame(width: 360, height: 45)
                     .cornerRadius(15)
                     .overlay{
-                        Text("Register")
+                        Text(registered ? "Unregister" : "Register")
                             .font(.title)
                             .bold()
                     }
@@ -209,6 +210,6 @@ struct CourseView_Previews : PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View{
-        eventDetailView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April at 18.33", sigName: "SIG Badminton", namespace: namespace, show: .constant(false))
+        eventDetailView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April at 18.33", sigName: "SIG Badminton", namespace: namespace, registered: true, show: .constant(false))
     }
 }

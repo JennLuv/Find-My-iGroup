@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct profileView: View {
-
+    @Binding var data : [Card]
     
     var body: some View {
         NavigationView {
@@ -45,7 +45,7 @@ struct profileView: View {
                     Section{
                         
                         NavigationLink {
-                            sigSelectionView()
+                            sigSelectionView(data: $data)
                         } label: {
                             Text("SIG Selection")
                         }
@@ -83,9 +83,9 @@ struct profileView: View {
     }
 }
 
-#Preview {
-    profileView()
-}
+//#Preview {
+//    profileView()
+//}
 
 struct idView: View {
     

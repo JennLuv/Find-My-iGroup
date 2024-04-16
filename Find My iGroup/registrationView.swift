@@ -11,6 +11,11 @@ import SwiftUI
 struct registrationView: View {
     
     var namespace: Namespace.ID
+    @Binding var data : [Card]
+    
+    var registeredSigs: [Card] {
+        return data.filter { $0.registered }
+    }
     
     var body: some View {
         
@@ -24,28 +29,42 @@ struct registrationView: View {
                     .padding(.horizontal)
                 
                 ScrollView{
-                    
-                    NavigationLink (destination: {
-                        registeredEventPaymentView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace)
-//                            .navigationBarBackButtonHidden(true)
-                        
-                    }, label: {
-                        registeredView(sigName : "SIG Badminton", date : "13 April 2024 at 13.33", paymentStatus : "Not Paid", activityName : "BADMINTON FUN GAME", price : "Rp 15.000")
-                            .padding(.top)
-                            .padding(.horizontal)
-                    })
-                    .tint(Color.white)
-                    
-                    NavigationLink (destination: {
-                        registeredEventPaymentView(image: "basketballImage", activityName: "BASKETBALL SPAR DAY FUN", date: "20 April 2024 at 16.33", sigName: "SIG Basketball", namespace: namespace)
-//                            .navigationBarBackButtonHidden(true)
-                        
-                    }, label: {
-                        registeredView(sigName : "SIG Basketball", date : "20 April 2024 at 16.33", paymentStatus : "Not Paid", activityName : "BASKETBALL SPAR DAY FUN", price : "Rp 15.000")
-                            .padding(.top)
-                            .padding(.horizontal)
-                    })
-                    .tint(Color.white)
+                    VStack{
+                        ForEach(self.registeredSigs){i in
+                            NavigationLink (destination: {
+                                registeredEventPaymentView(image: i.image, activityName: i.activityName, date: i.date, sigName: i.sigName, namespace: namespace, registered: i.registered, data: $data)
+                                //                            .navigationBarBackButtonHidden(true)
+                                
+                            }, label: {
+                                registeredView(sigName : i.sigName, date : i.date, paymentStatus : "Not Paid", activityName : i.activityName, price : "Rp 15.000")
+                                    .padding(.top)
+                                    .padding(.horizontal)
+                            })
+                            .tint(Color.white)
+                            
+                        }
+                    }
+                    //                    NavigationLink (destination: {
+                    //                        registeredEventPaymentView(image: "badmintonImage", activityName: "BADMINTON FUN GAME DAY", date: "11 April 2024 at 18.33", sigName: "SIG Badminton", namespace: namespace)
+                    ////                            .navigationBarBackButtonHidden(true)
+                    //
+                    //                    }, label: {
+                    //                        registeredView(sigName : "SIG Badminton", date : "13 April 2024 at 13.33", paymentStatus : "Not Paid", activityName : "BADMINTON FUN GAME", price : "Rp 15.000")
+                    //                            .padding(.top)
+                    //                            .padding(.horizontal)
+                    //                    })
+                    //                    .tint(Color.white)
+                    //
+                    //                    NavigationLink (destination: {
+                    //                        registeredEventPaymentView(image: "basketballImage", activityName: "BASKETBALL SPAR DAY FUN", date: "20 April 2024 at 16.33", sigName: "SIG Basketball", namespace: namespace)
+                    ////                            .navigationBarBackButtonHidden(true)
+                    //
+                    //                    }, label: {
+                    //                        registeredView(sigName : "SIG Basketball", date : "20 April 2024 at 16.33", paymentStatus : "Not Paid", activityName : "BASKETBALL SPAR DAY FUN", price : "Rp 15.000")
+                    //                            .padding(.top)
+                    //                            .padding(.horizontal)
+                    //                    })
+                    //                    .tint(Color.white)
                 }
                 
                 
@@ -72,7 +91,6 @@ struct registrationView: View {
 }
 
 
-//#Preview {
-//    registrationView()
-//}
-
+#Preview {
+    ContentView()
+}
